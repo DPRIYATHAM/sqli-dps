@@ -1,0 +1,41 @@
+{
+ "OrderItems": {
+  "order_item_id": "int",
+  "order_id": "int",
+  "product_id": "int",
+  "quantity": "int",
+  "price": "decimal(10,2)"
+ },
+ "Orders": {
+  "order_id": "int",
+  "user_id": "int",
+  "total_amount": "decimal(10,2)",
+  "order_date": "timestamp"
+ },
+ "Products": {
+  "product_id": "int",
+  "product_name": "varchar(100)",
+  "price": "decimal(10,2)",
+  "stock": "int",
+  "created_at": "timestamp"
+ },
+ "Reviews": {
+  "review_id": "int",
+  "user_id": "int",
+  "product_id": "int",
+  "rating": "int",
+  "comment": "text",
+  "review_date": "timestamp"
+ },
+ "test": {
+  "id": "int",
+  "config": "tinyblob"
+ },
+ "Users": {
+  "user_id": "int",
+  "username": "varchar(50)",
+  "password": "varchar(100)",
+  "email": "varchar(100)",
+  "created_at": "timestamp"
+ }
+}
