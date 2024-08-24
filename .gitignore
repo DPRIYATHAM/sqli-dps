@@ -1,1 +1,77 @@
 .idea/
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+*.egg
+*.egg-info/
+dist/
+build/
+eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual environment
+venv/
+ENV/
+env/
+.venv/
+.env/
+
+# PyInstaller
+#  Uncomment this line if you have a pyinstaller build
+#  *.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+.coverage
+.coverage.*
+nosetests.xml
+coverage.xml
+*.cover
+*.log
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Pyre type checker
+.pyre/
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pytype
+.pytype/
+
+# Cython debug symbols
+cython_debug/
+
+# Environment variables
+.env
+
+# VS Code settings
+.vscode/
+
+# Pycharm settings
+.idea/
+
+# MacOS
+.DS_Store
+
+# Windows
+Thumbs.db
+Desktop.ini
