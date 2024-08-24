@@ -55,19 +55,3 @@ class TestFloat(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
-# if __name__ == "__main__":
-#     con = mysql.connector.connect(
-#         host="localhost",
-#         user="arjun",
-#         password="arjun2005",
-#         database="test"
-#     )
-#     query = r"SELECT * FROM Reviews WHERE review_id=::review_id:: and product_id=::product_id::"
-#     parameters = {
-#         'review_id': str("1"),
-#         'product_id': str("1")
-#     }
-#     cursor = Sanitizier(query, "Reviews", parameters).execute(con)
-#     for row in cursor.fetchall():
-#         print(row)
-#
