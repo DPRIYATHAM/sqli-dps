@@ -1,6 +1,6 @@
 # SQL Injection Prevention and Database Interaction in Node.js
 
-This README provides an in-depth overview of techniques and best practices for preventing SQL injection attacks and efficiently interacting with databases in Node.js applications.
+This README provides an in-depth overview of techniques and best practices for preventing SQL injection attacks and efficiently interacting with databases in applications.
 
 ## Table of Contents
 1. [Introduction](#introduction)
