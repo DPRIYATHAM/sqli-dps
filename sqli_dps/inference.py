@@ -1,6 +1,13 @@
 import joblib
+import pkg_resources
 
-pipeline = joblib.load("model.pkl")
+
+def get_package_file(filename: str) -> str:
+    return pkg_resources.resource_filename("sqli_dps", filename)
+
+
+model_path = get_package_file("model.pkl")
+pipeline = joblib.load(model_path)
 
 
 class PotentialSQLiPayload(Exception):

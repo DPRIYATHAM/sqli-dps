@@ -1,7 +1,7 @@
 # Makefile for building the 'token' Python extension module
 
 # Name of the final shared object
-TARGET = token.so
+TARGET = sql_tokenizer.so
 
 # Source files
 LEXFILE = lexer.l
