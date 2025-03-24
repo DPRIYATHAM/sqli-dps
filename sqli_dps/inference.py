@@ -1,3 +1,6 @@
+import importlib.util
+import sys
+
 import joblib
 import pkg_resources
 
@@ -6,8 +9,18 @@ def get_package_file(filename: str) -> str:
     return pkg_resources.resource_filename("sqli_dps", filename)
 
 
+module_path = get_package_file("sql_tokenizer.so")
+module_name = "sql_tokenizer"
+
+spec = importlib.util.spec_from_file_location(module_name, module_path)
+sql_tokenizer = importlib.util.module_from_spec(spec)
+sys.modules[module_name] = sql_tokenizer
+spec.loader.exec_module(sql_tokenizer)
+
 model_path = get_package_file("model.pkl")
 pipeline = joblib.load(model_path)
+
+so_path = get_package_file("sql_tokenizer.so")
 
 
 class PotentialSQLiPayload(Exception):
@@ -47,6 +60,3 @@ class SQLi:
             except PotentialSQLiPayload:
                 cleaned[key] = error
         return cleaned
-
-
-SQLi.check(" or pg_sleep ( __TIME__ ) --")

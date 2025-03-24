@@ -5,5 +5,4 @@ include sqli_dps/train.py
 include sqli_dps/inference.py
 include sqli_dps/model.pkl
 include sqli_dps/sqliv2cleaned.csv
-include sqli_dps/sql_tokenizer.so 
-include sqli_dps/*.pkl
+include sqli_dps/sql_tokenizer.so
