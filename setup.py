@@ -4,7 +4,7 @@ setup(
     name="sqli_dps",
     version="1.0.0",
     packages=find_packages(),
-    install_requires=["joblib"],
+    install_requires=["joblib", "pandas", "scikit-learn", "numpy"],
     include_package_data=True,
     package_data={
         "sqli_dps": [
