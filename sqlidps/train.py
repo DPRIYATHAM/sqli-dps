@@ -17,7 +17,7 @@ from sklearn.svm import SVC
 
 
 def get_package_file(filename: str) -> str:
-    return pkg_resources.resource_filename("sqli_dps", filename)
+    return pkg_resources.resource_filename("sqlidps", filename)
 
 
 # moudle_path = get_package_file("sql_tokenizer.so")
