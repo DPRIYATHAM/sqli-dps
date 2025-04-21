@@ -1,5 +1,5 @@
 %{
-#include "wrapper.h"  /* Declares append_token() */
+#include "./wrapper.h"  /* Declares append_token() */
 %}
 
 %option noyywrap

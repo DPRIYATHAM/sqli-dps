@@ -42,4 +42,4 @@ $(TARGET): lex.yy.o wrapper.o
 
 clean:
 	@echo "Cleaning up..."
-	rm -f $(LEX_C) lex.yy.o wrapper.o 
+	rm -f lex.yy.o wrapper.o 

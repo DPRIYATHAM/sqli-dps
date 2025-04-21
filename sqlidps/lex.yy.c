@@ -1,6 +1,5 @@
-#line 1 "lex.yy.c"
 
-#line 3 "lex.yy.c"
+#line 2 "lex.yy.c"
 
 #define  YY_INT_ALIGNED short int
 
@@ -690,8 +689,8 @@ int yy_flex_debug = 0;
 char *yytext;
 #line 1 "lexer.l"
 #line 2 "lexer.l"
-#include "wrapper.h"  /* Declares append_token() */
-#line 694 "lex.yy.c"
+#include "./wrapper.h"  /* Declares append_token() */
+#line 693 "lex.yy.c"
 /* Definitions */
 /* Comments:
    C-style comments, or -- comments (up to newline), or # comments */
@@ -699,7 +698,7 @@ char *yytext;
 /* Merge operators into one regex.
    Multi‑character operators come first */
 /* Merge punctuation into one regex */
-#line 702 "lex.yy.c"
+#line 701 "lex.yy.c"
 
 #define INITIAL 0
 
@@ -919,7 +918,7 @@ YY_DECL
 #line 31 "lexer.l"
 
 
-#line 922 "lex.yy.c"
+#line 921 "lex.yy.c"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -1041,7 +1040,7 @@ YY_RULE_SETUP
 #line 45 "lexer.l"
 ECHO;
 	YY_BREAK
-#line 1044 "lex.yy.c"
+#line 1043 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 

@@ -1,4 +1,4 @@
-#include "wrapper.h" /* Ensure this header declares append_token() if needed */
+#include "./wrapper.h" /* Ensure this header declares append_token() if needed */
 #include <Python.h>
 
 /* Declarations for Flex’s scanning functions */
