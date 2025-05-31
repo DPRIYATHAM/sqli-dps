@@ -6,7 +6,11 @@ import numpy as np
 import pandas as pd
 import pkg_resources
 from sklearn.ensemble import RandomForestClassifier
-from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.feature_extraction.text import (
+    CountVectorizer,
+    TfidfTransformer,
+    TfidfVectorizer,
+)
 from sklearn.linear_model import PassiveAggressiveClassifier
 from sklearn.metrics import classification_report
 from sklearn.model_selection import train_test_split
@@ -36,19 +40,26 @@ def train():
     csvs = [file for file in files if file.endswith(".csv")]
     print(csvs)
     data = pd.read_csv(csvs[1])
+    print(data)
     print(data.keys())
     drop_keys = data.keys()[2:]
     data = data.drop(drop_keys, axis=1)
     data = data.dropna()
+    data["Query"] = data["Query"].str.lower()
     X_train, X_test, y_train, y_test = train_test_split(
         data["Query"], data["Label"], test_size=0.2, random_state=42
     )
     pipeline = Pipeline(
         [
             (
-                "tfidf",
-                TfidfVectorizer(tokenizer=sql_tokenizer.tokenize, lowercase=False),
+                "count_vec",
+                CountVectorizer(
+                    tokenizer=sql_tokenizer.tokenize,
+                    preprocessor=lambda x: x,
+                    lowercase=False,
+                ),
             ),
+            ("tfidf", TfidfTransformer()),
             ("clf", RandomForestClassifier(n_estimators=100, random_state=42)),
         ]
     )
@@ -60,10 +71,10 @@ def train():
 
 
 def export_model(pipeline, export_path="model.npz"):
-    vec = pipeline.named_steps["tfidf"]
+    vec = pipeline.named_steps["count_vec"]
     vocab = vec.vocabulary_
     inv_vocab = {i: t for t, i in vocab.items()}
-    idf = vec.idf_
+    idf = pipeline.named_steps["tfidf"].idf_
 
     rf = pipeline.named_steps["clf"]
     classes = rf.classes_
