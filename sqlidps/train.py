@@ -39,7 +39,7 @@ def train():
     files = os.listdir()
     csvs = [file for file in files if file.endswith(".csv")]
     print(csvs)
-    data = pd.read_csv(csvs[1])
+    data = pd.read_csv(csvs[0])
     print(data)
     print(data.keys())
     drop_keys = data.keys()[2:]
