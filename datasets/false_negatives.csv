@@ -1,0 +1,84 @@
+,Query,Label,Detected
+1,create user name identified by pass123 temporary tablespace temp default tablespace users,1,0
+54,print,1,0
+105,s,1,0
+119,truncate,1,0
+154,or username like char  (  37  )  ,1,0
+160,exec sp,1,0
+257,sqlvuln,1,0
+396,bfilename,1,0
+398,uef,1,0
+503,asc,1,0
+561,desc,1,0
+616,sqlvuln,1,0
+628, or username like char  (  37  )  ,1,0
+756,exec xp,1,0
+761,sqlattempt1,1,0
+787,0x770061006900740066006f0072002000640065006c00610079002000270030003a0030003a,1,0
+800,1 exec sp_   (  or exec xp_  ) ,1,0
+814,replace,1,0
+827,create user name identified by 'pass123',1,0
+1668,"1 or 7552  =    (  select count  (  *  )   from rdb$fields as t1,rdb$types as t2,rdb$collations as t3,rdb$functions as t4  )  ",1,0
+2331,"select count  (  *  )   from rdb$fields as t1,rdb$types as t2,rdb$collations as t3,rdb$functions as t4 and   (  1473  =  1473",1,0
+3810,select sleep  (  5  ) ,1,0
+4211,1,1,0
+9136,select pg_sleep  (  5  ) ,1,0
+9588,"1 and 6414  =    (  select count  (  *  )   from rdb$fields as t1,rdb$types as t2,rdb$collations as t3,rdb$functions as t4  )  ",1,0
+10533,"select count  (  *  )   from rdb$fields as t1,rdb$types as t2,rdb$collations as t3,rdb$functions as t4 and    (    (   6977  =  6977",1,0
+11378,print,1,0
+11429,s,1,0
+11443,truncate,1,0
+11581,sqlvuln,1,0
+11718,bfilename,1,0
+11720,uef,1,0
+11825,asc,1,0
+11883,desc,1,0
+11938,sqlvuln,1,0
+12083,sqlattempt0o0o0x9o0o0o0o10,1,0
+12109,0o0x770061006900740066006f0072002000640065006c0b1000010001001010001100000000111111101101101111010011011001110010110011a0o72463a,1,0
+12136,replace,1,0
+13902,"select]count;`( <dv* +)~\ from}sysibm.systables.as-t0b0o0b0b7,sysibm.systables$as:t4b3o0b0o9x0o9b0o0o3x0b0o5b2o0o0x1,sysibm.systablesast7>;and   <{( < <(_  /&(( ""mubt""/*|<xtgc5wrv*/`like  ""mubt",1,0
+14727,8,1,0
+15427,print,1,0
+15478,s,1,0
+15492,truncate,1,0
+15533,exec!sp,1,0
+15590,0 uni on select all from where,1,0
+15630,sqlvuln,1,0
+15767,bfilename,1,0
+15769,uef,1,0
+15874,asc,1,0
+15875,"! or  myappadmin.adduser `()'admin', 'newpass'* )(/ or`'",1,0
+15932,desc,1,0
+15987,sqlvuln,1,0
+16132,sqlattempt0b0x0b81x1x5x5,1,0
+16158,0x0x29bebe45d1723d8afef0xffcd762744c1d8c00616079002000270030003a0030103a,1,0
+16185,replace,1,0
+18519,"0o8o0o1+`
+) -+`)    as bjxd
+where=0x10cb=4949",1,0
+18606,"2b0o0o0x0x0x1 \))[<
+
+) 
+ `and1xcb2b1;=2945",1,0
+18776,2b1,1,0
+19742,0o13153-5738,1,0
+19966,"1,updatexml '(  0b0x8o5555,concat    and   (select>(select 0x1))+   and    true and 0x1 or false or false#(  0x2e,0x1171736a71,_ (  select   (! elt  (< (select (select (select 0xb65))) =#(select (select (select 0b101101100101))),(select (select (select (select (select~(select (select 1)))))))   ) 
+  )    +) 
+,0x0x8x9b1011401101a367a71  )
+ ,0b0x918a7eb984f  ) ' gh=uzjif<wby",1,0
+28916,a,1,0
+28928,1s,1,0
+28930,ue1,1,0
+28931,ues,1,0
+28932,uev,1,0
+28933,c,1,0
+28934,n,1,0
+28935,ns,1,0
+28936,os,1,0
+28937,v,1,0
+28943,0,1,0
+28945,handler,1,0
+28946,to_timestamp_tz,1,0
+28947,tz_offset,1,0
+28958,3.1e+017,1,0

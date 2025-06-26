@@ -1,5 +1,7 @@
+import html
 import importlib.util
 import os
+import re
 import sys
 
 import numpy as np
@@ -21,6 +23,21 @@ from sklearn.svm import SVC
 
 def get_package_file(filename: str) -> str:
     return pkg_resources.resource_filename("sqlidps", filename)
+
+
+def decode_encodings(text: str) -> str:
+    assert isinstance(text, str)
+    try:
+        text = text.replace("\\", "\\\\")
+        text = text.encode("utf-8").decode("unicode_escape")
+    except Exception as e:
+        return ""
+    text = re.sub(
+        r"%([0-9A-Fa-f]{2})", lambda m: bytes.fromhex(m.group(1)).decode("latin1"), text
+    )
+    text = re.sub(r"[Uu]\+([0-9A-Fa-f]{4,6})", lambda m: chr(int(m.group(1), 16)), text)
+    text = html.unescape(text)
+    return text
 
 
 # moudle_path = get_package_file("sql_tokenizer.so")
@@ -46,6 +63,7 @@ def train():
     data = data.drop(drop_keys, axis=1)
     data = data.dropna()
     data["Query"] = data["Query"].str.lower()
+    data["Query"] = data["Query"].apply(decode_encodings)
     X_train, X_test, y_train, y_test = train_test_split(
         data["Query"], data["Label"], test_size=0.2, random_state=42
     )
@@ -60,7 +78,7 @@ def train():
                 ),
             ),
             ("tfidf", TfidfTransformer()),
-            ("clf", RandomForestClassifier(n_estimators=100, random_state=42)),
+            ("clf", RandomForestClassifier(n_estimators=200)),
         ]
     )
     pipeline.fit(X_train, y_train)

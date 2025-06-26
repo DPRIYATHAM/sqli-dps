@@ -1,9 +1,13 @@
+import html
 import importlib.util
+import re
 import sys
 
 import numpy as np
 import pkg_resources
+
 import sqlidps.sql_tokenizer as sql_tokenizer
+
 
 def get_package_file(filename: str) -> str:
     return pkg_resources.resource_filename("sqlidps", filename)
@@ -17,6 +21,19 @@ model_path = get_package_file("model.npz")
 # sql_tokenizer = importlib.util.module_from_spec(spec)
 # sys.modules[module_name] = sql_tokenizer
 # spec.loader.exec_module(sql_tokenizer)
+
+
+def decode_encodings(text: str) -> str:
+    try:
+        text = text.encode("utf-8").decode("unicode_escape")
+    except Exception:
+        pass
+    text = re.sub(
+        r"%([0-9A-Fa-f]{2})", lambda m: bytes.fromhex(m.group(1)).decode("latin1"), text
+    )
+    text = re.sub(r"[Uu]\+([0-9A-Fa-f]{4,6})", lambda m: chr(int(m.group(1), 16)), text)
+    text = html.unescape(text)
+    return text
 
 
 class Inference:

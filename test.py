@@ -1,13 +1,15 @@
-import pandas as pd
+import os
 
+import pandas as pd
 from sqlidps import PotentialSQLiPayload, SQLi
 
-df = pd.read_csv("Modified_SQL_Dataset.csv")
+csvs = [file for file in os.listdir("./sqli-dps") if file.endswith(".csv")]
+df = pd.read_csv(os.path.join("sqli-dps", csvs[0]))
 
 results = []
 
 for _, row in df.iterrows():
-    query = row["Query"].lower()
+    query = row["Query"]
     label = row["Label"]
 
     system_detected = 0

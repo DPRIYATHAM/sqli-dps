@@ -1,0 +1,48 @@
+,Query,Label,Detected
+22217,6$ng4tado,0,1
+22407,$amarulencia,0,1
+22789,"c/ leopoldo alas ""clarin"" 4, 6?b",0,1
+22863,.lapidosa,0,1
+22951,#name?,0,1
+23165,#name?,0,1
+23215,.raijo,0,1
+23238,?revivir,0,1
+23485,?malgastador,0,1
+23815,"catalanes, 137, 3?a",0,1
+24045,$despumar,0,1
+24056,.bronceada,0,1
+24210,$ventador,0,1
+25268,#name?,0,1
+25385,$embrutecimiento,0,1
+26072,"roure, 43, 3?d",0,1
+26842,on,0,1
+26872,.corporativo,0,1
+27370,516?t2r8ro,0,1
+27546,#name?,0,1
+27866,#name?,0,1
+28157,"burgos, 40, 7?a",0,1
+28265,1?i0l,0,1
+28293,29?em2ti3a,0,1
+28410,_bielda,0,1
+28508,#name?,0,1
+28761,.espejo,0,1
+29185,"select term_id, meta_key, meta_value from wp_termmeta where term_id in  ( 2710,3175,3142,3021,3141,3139,2676,3086,3140,3088 )  order by meta_id asc",0,1
+29355,"select wp_posts.* from wp_posts where id in  ( 262310,262326,262328 ) ",0,1
+29520," select orderid, quantity, case     when quantity > 30 then 'the quantity is greater than 30'     when quantity  =  30 then 'the quantity is 30'     else 'the quantity is under 30' end as quantitytext from orderdetails;",0,1
+29529,"select * from customers where city  =  @city and postalcode  =  @postalcode go;  exec selectallcustomers @city  =  'london', @postalcode  =  'wa1 1dp';",0,1
+29531,--select * from customers,0,1
+29536,"select customername, /*city,*/ country from customers;",0,1
+29549,"select * from users where name  = """" or """" = """" and pass  = """" or """" = """"",0,1
+29575,"select concat ( ""sql "", ""tutorial "", ""is "", ""fun!"" )  as concatenatedstring;",0,1
+29577,"select concat_ws ( ""-"", ""sql"", ""tutorial"", ""is"", ""fun!"" )  as concatenatedstring;",0,1
+29815,"  select str_to_date ( ""2017,8,14 10,40,10"", ""%y,%m,%d %h,%i,%s"" ) ;",0,1
+29865,"  select binary ""hello""  =  ""hello"";",0,1
+29868,"select cast ( ""14:06:10"" as time ) ;",0,1
+29869,select cast ( 5-10 as signed ) ,0,1
+29881,select database (  ) ,0,1
+29885," select orderid, quantity, if ( quantity>10, ""more"", ""less"" )  from  orderdetails;",0,1
+35322,delete from by,0,1
+35619,delete from engine,0,1
+36012,delete from function,0,1
+37881,delete from if,0,1
+39031,select drop,0,1
