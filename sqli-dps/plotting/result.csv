@@ -1,0 +1,47 @@
+feature,classifier,acc,precision,recall,f1,auc,training_time,inference_time
+BoC only,sqlidps,0.9972,0.9972,0.9972,0.9972,0.9999,22.18s,0.02459ms
+BoC only,proposed-ensemble,0.9925,0.9925,0.9925,0.9925,0.9994,63.84s,0.12908ms
+BoC only,AdaBoost,0.9761,0.9761,0.9761,0.9761,0.9957,9.90s,0.00952ms
+BoC only,Bagging,0.9928,0.9928,0.9928,0.9928,0.9978,23.18s,0.00511ms
+BoC only,DecisionTree,0.9912,0.9912,0.9912,0.9912,0.9910,4.21s,0.00094ms
+BoC only,ExtraTrees,0.9979,0.9979,0.9979,0.9979,1.0000,3.29s,0.01571ms
+BoC only,KNeighbors,0.9936,0.9936,0.9936,0.9936,0.9986,0.06s,0.42631ms
+BoC only,LinearSVC,0.9856,0.9856,0.9856,0.9856,0.9973,98.57s,0.06953ms
+BoC only,LogisticRegression,0.9850,0.9850,0.9850,0.9850,0.9975,1.01s,0.00237ms
+BoC only,MLP,0.9978,0.9978,0.9978,0.9978,0.9998,13.63s,0.00362ms
+BoC only,MultinomialNB,0.9043,0.9077,0.9043,0.9029,0.9581,0.01s,0.00042ms
+BoC only,NearestCentroid,0.8925,0.8922,0.8925,0.8922,0.9554,0.11s,0.00096ms
+BoC only,NuSVC,0.9243,0.9287,0.9243,0.9231,nan,111.32s,2.11439ms
+BoC only,OneVsOne,0.9850,0.9850,0.9850,0.9850,nan,1.37s,0.00147ms
+BoC only,OneVsRest,0.9850,0.9850,0.9850,0.9850,nan,1.29s,0.00103ms
+BoC only,PassiveAggressive,0.9766,0.9766,0.9766,0.9766,nan,0.31s,0.00134ms
+BoC only,Perceptron,0.9758,0.9758,0.9758,0.9758,nan,0.21s,0.00118ms
+BoC only,RidgeClassifier,0.9794,0.9794,0.9794,0.9794,nan,0.13s,0.00080ms
+BoC only,SGDClassifier,0.9846,0.9846,0.9846,0.9846,nan,0.39s,0.00073ms
+BoC only,SVC-GC,0.9949,0.9949,0.9949,0.9949,0.9993,92.25s,0.28657ms
+BoC only,SVM_RBF,0.9965,0.9965,0.9965,0.9965,0.9997,40.32s,0.19625ms
+BoC only,XGBoost,0.9975,0.9975,0.9975,0.9975,0.9999,2.72s,0.00423ms
+Grammer aware TF-IDF,sqlidps,0.9970,0.9970,0.9970,0.9970,0.9998,4.61s,0.01575ms
+Grammer aware TF-IDF,proposed-ensemble,0.9864,0.9865,0.9864,0.9864,0.9991,29.55s,0.08114ms
+Grammer aware TF-IDF,AdaBoost,0.9876,0.9876,0.9876,0.9876,0.9987,1.58s,0.00431ms
+Grammer aware TF-IDF,Bagging,0.9958,0.9958,0.9958,0.9958,0.9987,0.76s,0.00144ms
+Grammer aware TF-IDF,DecisionTree,0.9953,0.9953,0.9953,0.9953,0.9959,0.12s,0.00029ms
+Grammer aware TF-IDF,ExtraTrees,0.9971,0.9971,0.9971,0.9971,0.9995,1.36s,0.01098ms
+Grammer aware TF-IDF,KNeighbors,0.9957,0.9957,0.9957,0.9957,0.9986,0.01s,0.20885ms
+Grammer aware TF-IDF,LinearSVC,0.9651,0.9651,0.9651,0.9650,0.9927,41.33s,0.08414ms
+Grammer aware TF-IDF,LogisticRegression,0.9673,0.9673,0.9673,0.9673,0.9935,0.46s,0.00038ms
+Grammer aware TF-IDF,MLP,0.9967,0.9967,0.9967,0.9967,0.9996,15.01s,0.00148ms
+Grammer aware TF-IDF,MultinomialNB,0.9283,0.9333,0.9283,0.9272,0.9797,0.01s,0.00013ms
+Grammer aware TF-IDF,NearestCentroid,0.9005,0.9014,0.9005,0.9008,0.9681,0.02s,0.00031ms
+Grammer aware TF-IDF,NuSVC,0.9647,0.9648,0.9647,0.9646,nan,50.80s,1.00509ms
+Grammer aware TF-IDF,OneVsOne,0.9662,0.9662,0.9662,0.9662,nan,0.14s,0.00037ms
+Grammer aware TF-IDF,OneVsRest,0.9662,0.9662,0.9662,0.9662,nan,0.15s,0.00044ms
+Grammer aware TF-IDF,PassiveAggressive,0.9337,0.9336,0.9337,0.9337,nan,0.04s,0.00018ms
+Grammer aware TF-IDF,Perceptron,0.9344,0.9343,0.9344,0.9343,nan,0.04s,0.00020ms
+Grammer aware TF-IDF,RidgeClassifier,0.9567,0.9567,0.9567,0.9566,nan,0.03s,0.00023ms
+Grammer aware TF-IDF,SGDClassifier,0.9662,0.9662,0.9662,0.9661,nan,0.07s,0.00020ms
+Grammer aware TF-IDF,SVC-GC,0.9933,0.9933,0.9933,0.9933,0.9987,19.83s,0.05285ms
+Grammer aware TF-IDF,SVM_RBF,0.9945,0.9945,0.9945,0.9945,0.9991,12.98s,0.06246ms
+Grammer aware TF-IDF,XGBoost,0.9971,0.9971,0.9971,0.9971,0.9998,0.63s,0.00259ms
+Grammer aware TF-IDF with n-gram,sqlidps,0.9976,0.9976,0.9976,0.9976,0.9999,35.26s,0.04660ms
+Grammer aware TF-IDF with n-gram,proposed-ensemble,0.9972,0.9972,0.9972,0.9972,0.9997,288.86s,0.68865ms

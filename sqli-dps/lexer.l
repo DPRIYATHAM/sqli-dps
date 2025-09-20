@@ -8,6 +8,17 @@
 
 
 DIGIT           [0-9]
+
+BINARY_PREFIX     0[bB]
+BINARY_NUMBER     {BINARY_PREFIX}[01]+
+
+OCTAL_PREFIX      0[oO]
+OCTAL_NUMBER      {OCTAL_PREFIX}[0-7]+
+
+HEX_PREFIX        0[xX]
+HEX_NUMBER        {HEX_PREFIX}[0-9a-fA-F]+
+
+DECIMAL_NUMBER    {DIGIT}+(\.{DIGIT}+)?
 LETTER          [a-zA-Z]
 ID              {LETTER}([a-zA-Z0-9$_])*
 STRING_SINGLE   \'([^\\\']|(\\.))*\'
@@ -23,12 +34,26 @@ ERRORBASED      (EXTRACTVALUE\(.*\)|UPDATEXML\(.*\)|exp\(.*\)|FLOOR\(.*\)|count\
 FILEBASED       (LOAD_FILE\(.*\)|INTO[[:space:]]+OUTFILE|INTO[[:space:]]+DUMPFILE|LOAD[[:space:]]+DATA[[:space:]]+INFILE|xp_cmdshell|xp_dirtree|xp_fileexist|xp_regread|xp_regwrite|xp_servicecontrol|sp_oacreate|sp_oamethod|sp_makewebtask|sp_addextendedproc|COPY[[:space:]]+\.\.\.[[:space:]]+FROM[[:space:]]+PROGRAM|lo_import\(.*\)|lo_export\(.*\)|dblink_connect\(.*\)|dblink_exec\(.*\)|UTL_FILE|DBMS_JAVA\.runjava\(.*\)|DBMS_LOB\.LOADFROMFILE\(.*\)|BACKUP[[:space:]]+DATABASE[[:space:]]+TO[[:space:]]+DISK)
 DBMS_ID_KEYS    (@@CONNECTIONS|@@CPU_BUSY|USER_ID\(.*\)|ROWNUM|RAWTOHEX\(.*\)|LNNVL\(.*\)|pg_client_encoding\(.*\)|current_database\(.*\)|sqlite_version\(.*\)|connection_id\(.*\)|crc32\(.*\))
 ADV_NET_FUNCS   (UTL_HTTP\.REQUEST\(.*\)|UTL_INADDR\.GET_HOST_ADDRESS\(.*\)|UTL_TCP\.AVAILABLE\(.*\))
-OPERATORS       (<>|<=|>=|!=|=|<|>|!|\*|\/|\+|\-)
+ARITHEMETIC_OPERATORS       (\*|\/|\+|\-)
+COMPARISON_OPERATORS (<>|<=|>=|!=|=|<|>) 
+LOGICAL_OPERATORS (!|\||&|\^)
 PUNCTUATION     (\(|\)|,|\.)
+UNICODE_ESC_U      \\\\u[0-9a-fA-F]{4}
+UNICODE_ESC_U_PLUS U\+[0-9a-fA-F]{4,6}
+URL_ENCODED        %[0-9a-fA-F]{2}
+HTML_ENTITY_NAMED    &([a-zA-Z][a-zA-Z0-9]+);
+HTML_ENTITY_DECIMAL  &#[0-9]+;
+HTML_ENTITY_HEX      &#x[0-9a-fA-F]+;
 
 %%
 {WHITESPACE}              ;  
 {COMMENT}                 { append_token("COMMENT"); }
+{UNICODE_ESC_U}          { append_token("UNICODE_ESC_U"); }
+{UNICODE_ESC_U_PLUS}     { append_token("UNICODE_ESC_U_PLUS"); }
+{URL_ENCODED}            { append_token("URL_ENCODED"); }
+{HTML_ENTITY_NAMED}     { append_token("HTML_ENTITY_NAMED"); }
+{HTML_ENTITY_DECIMAL}   { append_token("HTML_ENTITY_DECIMAL"); }
+{HTML_ENTITY_HEX}       { append_token("HTML_ENTITY_HEX"); }
 {KEYWORDS}                { append_token("KEYWORD"); }
 {FUNCTIONS}               { append_token("FUNCTIONS"); }
 {DATA_EXFIL}              { append_token("DATA_EXFIL"); }
@@ -39,12 +64,17 @@ PUNCTUATION     (\(|\)|,|\.)
 {ADV_NET_FUNCS}           { append_token("ADV_NET_FUNCS"); }
 "@@"{LETTER}({LETTER}|{DIGIT}|\$|_)*   { append_token("SYSTEM_VARIABLE"); }
 "@"{LETTER}({LETTER}|{DIGIT}|\$|_)*    { append_token("VARIABLE"); }
-{DIGIT}+(\.{DIGIT}+)?     { append_token("NUMBER"); }
+{BINARY_NUMBER}           { append_token("NUMBER"); }
+{OCTAL_NUMBER}            { append_token("NUMBER"); }
+{HEX_NUMBER}              { append_token("NUMBER"); }
+{DECIMAL_NUMBER}          { append_token("NUMBER"); }
 {STRING_SINGLE}           { append_token("STRING"); }
 {STRING_DOUBLE}           { append_token("STRING"); }
 {BACKTICK}                { append_token("IDENTIFIER"); }
 {ID}                      { append_token("IDENTIFIER"); }
-{OPERATORS}               { append_token("OPERATOR"); }
+{ARITHEMETIC_OPERATORS}               { append_token("ARITHEMETIC_OPERATOR"); }
+{LOGICAL_OPERATORS}               { append_token("LOGICAL_OPERATOR"); }
+{COMPARISON_OPERATORS}               { append_token("COMPARISON_OPERATOR"); }
 ";"                       { append_token("EOS"); }
 {PUNCTUATION}             { append_token("PUNCTUATION"); }
 .                         { append_token("UNKNOWN"); }

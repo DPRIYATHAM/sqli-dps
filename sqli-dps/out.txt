@@ -1,0 +1,46 @@
+BoC only + sqlidps → Acc: 0.9972, Prec: 0.9972, Recall: 0.9972, F1: 0.9972, AUC: 0.9999, TrainTime: 22.18s, InferTime: 0.02459ms
+BoC only + proposed-ensemble → Acc: 0.9925, Prec: 0.9925, Recall: 0.9925, F1: 0.9925, AUC: 0.9994, TrainTime: 63.84s, InferTime: 0.12908ms
+BoC only + AdaBoost → Acc: 0.9761, Prec: 0.9761, Recall: 0.9761, F1: 0.9761, AUC: 0.9957, TrainTime: 9.90s, InferTime: 0.00952ms
+BoC only + Bagging → Acc: 0.9928, Prec: 0.9928, Recall: 0.9928, F1: 0.9928, AUC: 0.9978, TrainTime: 23.18s, InferTime: 0.00511ms
+BoC only + DecisionTree → Acc: 0.9912, Prec: 0.9912, Recall: 0.9912, F1: 0.9912, AUC: 0.9910, TrainTime: 4.21s, InferTime: 0.00094ms
+BoC only + ExtraTrees → Acc: 0.9979, Prec: 0.9979, Recall: 0.9979, F1: 0.9979, AUC: 1.0000, TrainTime: 3.29s, InferTime: 0.01571ms
+BoC only + KNeighbors → Acc: 0.9936, Prec: 0.9936, Recall: 0.9936, F1: 0.9936, AUC: 0.9986, TrainTime: 0.06s, InferTime: 0.42631ms
+BoC only + LinearSVC → Acc: 0.9856, Prec: 0.9856, Recall: 0.9856, F1: 0.9856, AUC: 0.9973, TrainTime: 98.57s, InferTime: 0.06953ms
+BoC only + LogisticRegression → Acc: 0.9850, Prec: 0.9850, Recall: 0.9850, F1: 0.9850, AUC: 0.9975, TrainTime: 1.01s, InferTime: 0.00237ms
+BoC only + MLP → Acc: 0.9978, Prec: 0.9978, Recall: 0.9978, F1: 0.9978, AUC: 0.9998, TrainTime: 13.63s, InferTime: 0.00362ms
+BoC only + MultinomialNB → Acc: 0.9043, Prec: 0.9077, Recall: 0.9043, F1: 0.9029, AUC: 0.9581, TrainTime: 0.01s, InferTime: 0.00042ms
+BoC only + NearestCentroid → Acc: 0.8925, Prec: 0.8922, Recall: 0.8925, F1: 0.8922, AUC: 0.9554, TrainTime: 0.11s, InferTime: 0.00096ms
+BoC only + NuSVC → Acc: 0.9243, Prec: 0.9287, Recall: 0.9243, F1: 0.9231, AUC: nan, TrainTime: 111.32s, InferTime: 2.11439ms
+BoC only + OneVsOne → Acc: 0.9850, Prec: 0.9850, Recall: 0.9850, F1: 0.9850, AUC: nan, TrainTime: 1.37s, InferTime: 0.00147ms
+BoC only + OneVsRest → Acc: 0.9850, Prec: 0.9850, Recall: 0.9850, F1: 0.9850, AUC: nan, TrainTime: 1.29s, InferTime: 0.00103ms
+BoC only + PassiveAggressive → Acc: 0.9766, Prec: 0.9766, Recall: 0.9766, F1: 0.9766, AUC: nan, TrainTime: 0.31s, InferTime: 0.00134ms
+BoC only + Perceptron → Acc: 0.9758, Prec: 0.9758, Recall: 0.9758, F1: 0.9758, AUC: nan, TrainTime: 0.21s, InferTime: 0.00118ms
+BoC only + RidgeClassifier → Acc: 0.9794, Prec: 0.9794, Recall: 0.9794, F1: 0.9794, AUC: nan, TrainTime: 0.13s, InferTime: 0.00080ms
+BoC only + SGDClassifier → Acc: 0.9846, Prec: 0.9846, Recall: 0.9846, F1: 0.9846, AUC: nan, TrainTime: 0.39s, InferTime: 0.00073ms
+BoC only + SVC-GC → Acc: 0.9949, Prec: 0.9949, Recall: 0.9949, F1: 0.9949, AUC: 0.9993, TrainTime: 92.25s, InferTime: 0.28657ms
+BoC only + SVM_RBF → Acc: 0.9965, Prec: 0.9965, Recall: 0.9965, F1: 0.9965, AUC: 0.9997, TrainTime: 40.32s, InferTime: 0.19625ms
+BoC only + XGBoost → Acc: 0.9975, Prec: 0.9975, Recall: 0.9975, F1: 0.9975, AUC: 0.9999, TrainTime: 2.72s, InferTime: 0.00423ms
+Grammer aware TF-IDF + sqlidps → Acc: 0.9970, Prec: 0.9970, Recall: 0.9970, F1: 0.9970, AUC: 0.9998, TrainTime: 4.61s, InferTime: 0.01575ms
+Grammer aware TF-IDF + proposed-ensemble → Acc: 0.9864, Prec: 0.9865, Recall: 0.9864, F1: 0.9864, AUC: 0.9991, TrainTime: 29.55s, InferTime: 0.08114ms
+Grammer aware TF-IDF + AdaBoost → Acc: 0.9876, Prec: 0.9876, Recall: 0.9876, F1: 0.9876, AUC: 0.9987, TrainTime: 1.58s, InferTime: 0.00431ms
+Grammer aware TF-IDF + Bagging → Acc: 0.9958, Prec: 0.9958, Recall: 0.9958, F1: 0.9958, AUC: 0.9987, TrainTime: 0.76s, InferTime: 0.00144ms
+Grammer aware TF-IDF + DecisionTree → Acc: 0.9953, Prec: 0.9953, Recall: 0.9953, F1: 0.9953, AUC: 0.9959, TrainTime: 0.12s, InferTime: 0.00029ms
+Grammer aware TF-IDF + ExtraTrees → Acc: 0.9971, Prec: 0.9971, Recall: 0.9971, F1: 0.9971, AUC: 0.9995, TrainTime: 1.36s, InferTime: 0.01098ms
+Grammer aware TF-IDF + KNeighbors → Acc: 0.9957, Prec: 0.9957, Recall: 0.9957, F1: 0.9957, AUC: 0.9986, TrainTime: 0.01s, InferTime: 0.20885ms
+Grammer aware TF-IDF + LinearSVC → Acc: 0.9651, Prec: 0.9651, Recall: 0.9651, F1: 0.9650, AUC: 0.9927, TrainTime: 41.33s, InferTime: 0.08414ms
+Grammer aware TF-IDF + LogisticRegression → Acc: 0.9673, Prec: 0.9673, Recall: 0.9673, F1: 0.9673, AUC: 0.9935, TrainTime: 0.46s, InferTime: 0.00038ms
+Grammer aware TF-IDF + MLP → Acc: 0.9967, Prec: 0.9967, Recall: 0.9967, F1: 0.9967, AUC: 0.9996, TrainTime: 15.01s, InferTime: 0.00148ms
+Grammer aware TF-IDF + MultinomialNB → Acc: 0.9283, Prec: 0.9333, Recall: 0.9283, F1: 0.9272, AUC: 0.9797, TrainTime: 0.01s, InferTime: 0.00013ms
+Grammer aware TF-IDF + NearestCentroid → Acc: 0.9005, Prec: 0.9014, Recall: 0.9005, F1: 0.9008, AUC: 0.9681, TrainTime: 0.02s, InferTime: 0.00031ms
+Grammer aware TF-IDF + NuSVC → Acc: 0.9647, Prec: 0.9648, Recall: 0.9647, F1: 0.9646, AUC: nan, TrainTime: 50.80s, InferTime: 1.00509ms
+Grammer aware TF-IDF + OneVsOne → Acc: 0.9662, Prec: 0.9662, Recall: 0.9662, F1: 0.9662, AUC: nan, TrainTime: 0.14s, InferTime: 0.00037ms
+Grammer aware TF-IDF + OneVsRest → Acc: 0.9662, Prec: 0.9662, Recall: 0.9662, F1: 0.9662, AUC: nan, TrainTime: 0.15s, InferTime: 0.00044ms
+Grammer aware TF-IDF + PassiveAggressive → Acc: 0.9337, Prec: 0.9336, Recall: 0.9337, F1: 0.9337, AUC: nan, TrainTime: 0.04s, InferTime: 0.00018ms
+Grammer aware TF-IDF + Perceptron → Acc: 0.9344, Prec: 0.9343, Recall: 0.9344, F1: 0.9343, AUC: nan, TrainTime: 0.04s, InferTime: 0.00020ms
+Grammer aware TF-IDF + RidgeClassifier → Acc: 0.9567, Prec: 0.9567, Recall: 0.9567, F1: 0.9566, AUC: nan, TrainTime: 0.03s, InferTime: 0.00023ms
+Grammer aware TF-IDF + SGDClassifier → Acc: 0.9662, Prec: 0.9662, Recall: 0.9662, F1: 0.9661, AUC: nan, TrainTime: 0.07s, InferTime: 0.00020ms
+Grammer aware TF-IDF + SVC-GC → Acc: 0.9933, Prec: 0.9933, Recall: 0.9933, F1: 0.9933, AUC: 0.9987, TrainTime: 19.83s, InferTime: 0.05285ms
+Grammer aware TF-IDF + SVM_RBF → Acc: 0.9945, Prec: 0.9945, Recall: 0.9945, F1: 0.9945, AUC: 0.9991, TrainTime: 12.98s, InferTime: 0.06246ms
+Grammer aware TF-IDF + XGBoost → Acc: 0.9971, Prec: 0.9971, Recall: 0.9971, F1: 0.9971, AUC: 0.9998, TrainTime: 0.63s, InferTime: 0.00259ms
+Grammer aware TF-IDF with n-gram + sqlidps → Acc: 0.9976, Prec: 0.9976, Recall: 0.9976, F1: 0.9976, AUC: 0.9999, TrainTime: 35.26s, InferTime: 0.04660ms
+Grammer aware TF-IDF with n-gram + proposed-ensemble → Acc: 0.9972, Prec: 0.9972, Recall: 0.9972, F1: 0.9972, AUC: 0.9997, TrainTime: 288.86s, InferTime: 0.68865ms

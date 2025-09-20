@@ -1,91 +1,62 @@
-import html
-import importlib.util
-import os
-import re
-import sys
+irport warnings
+
+from pipelines import *
+from sklearn.pipeline import Pipeline
+
+warnings.filterwarnings(
+    "ignore",
+    message="The parameter 'token_pattern' will not be used since 'tokenizer' is not None",
+)
 
 import numpy as np
 import pandas as pd
-import pkg_resources
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.feature_extraction.text import (
-    CountVectorizer,
-    TfidfTransformer,
-    TfidfVectorizer,
-)
-from sklearn.linear_model import PassiveAggressiveClassifier
-from sklearn.metrics import classification_report
-from sklearn.model_selection import train_test_split
-from sklearn.multiclass import OneVsRestClassifier
-from sklearn.pipeline import Pipeline
-from sklearn.svm import SVC
-
-
-def get_package_file(filename: str) -> str:
-    return pkg_resources.resource_filename("sqlidps", filename)
-
-
-def decode_encodings(text: str) -> str:
-    assert isinstance(text, str)
-    try:
-        text = text.replace("\\", "\\\\")
-        text = text.encode("utf-8").decode("unicode_escape")
-    except Exception as e:
-        return ""
-    text = re.sub(
-        r"%([0-9A-Fa-f]{2})", lambda m: bytes.fromhex(m.group(1)).decode("latin1"), text
-    )
-    text = re.sub(r"[Uu]\+([0-9A-Fa-f]{4,6})", lambda m: chr(int(m.group(1), 16)), text)
-    text = html.unescape(text)
-    return text
-
-
-# moudle_path = get_package_file("sql_tokenizer.so")
-module_path = "sql_tokenizer.so"
-module_name = "sql_tokenizer"
-
-spec = importlib.util.spec_from_file_location(module_name, module_path)
-sql_tokenizer = importlib.util.module_from_spec(spec)
-sys.modules[module_name] = sql_tokenizer
-spec.loader.exec_module(sql_tokenizer)
+from sklearn.metrics import (accuracy_score, classification_report,
+                             confusion_matrix)
+from sklearn.model_selection import cross_val_score
 
 
 def train():
     np.set_printoptions(precision=5)
     pd.set_option("display.float_format", "{:.5f}".format)
-    files = os.listdir()
-    csvs = [file for file in files if file.endswith(".csv")]
-    print(csvs)
-    data = pd.read_csv(csvs[0])
-    print(data)
-    print(data.keys())
-    drop_keys = data.keys()[2:]
-    data = data.drop(drop_keys, axis=1)
-    data = data.dropna()
-    data["Query"] = data["Query"].str.lower()
-    data["Query"] = data["Query"].apply(decode_encodings)
-    X_train, X_test, y_train, y_test = train_test_split(
-        data["Query"], data["Label"], test_size=0.2, random_state=42
+    train_df = pd.read_csv("train.csv")
+    test_df = pd.read_csv("test.csv")
+    X_train, X_test, y_train, y_test = (
+        train_df["Query"],
+        test_df["Query"],
+        train_df["Label"],
+        test_df["Label"],
     )
+
+    # feature_cache = {}
+    # results = []
+    # for f_name, f_pipe in feature_sets.items():
+    #     if f_name not in feature_cache:
+    #         feature_cache[f_name] = f_pipe.fit_transform(X_train, y_train)
+    #     X_feat = feature_cache[f_name]
+    #     feature_cache[f_name] = X_feat
+    #     for c_name, clf in classifiers.items():
+    #         scores = cross_val_score(
+    #             clf, X_feat, y_train, cv=5, scoring="accuracy", n_jobs=-1
+    #         )
+    #         results.append((f_name, c_name, np.mean(scores)))
+    #         print(f"{f_name} + {c_name} → Accuracy: {np.mean(scores):.4f}")
+    # return results
     pipeline = Pipeline(
         [
-            (
-                "count_vec",
-                CountVectorizer(
-                    tokenizer=sql_tokenizer.tokenize,
-                    preprocessor=lambda x: x,
-                    lowercase=False,
-                ),
-            ),
-            ("tfidf", TfidfTransformer()),
-            ("clf", RandomForestClassifier(n_estimators=200)),
+            ("feature_pref", feature_sets["Grammer aware TF-IDF with n-gram"]),
+            ("clf", classifiers["sqlidps"]),
         ]
     )
-    pipeline.fit(X_train, y_train)
-    y_pred = pipeline.predict(X_test)
-    print("Classification Report:")
-    print(classification_report(y_test, y_pred, zero_division=0, digits=5))
-    export_model(pipeline)
+    # pipeline.fit(X_train, y_train)
+    # y_pred = pipeline.predict(X_test)
+    # print("Classification Report:")
+    # print(classification_report(y_test, y_pred, zero_division=0, digits=5))
+    # tn, fp, fn, tp = confusion_matrix(y_test, y_pred).ravel()
+    # print(f"TP: {tp}, TN: {tn}, FP: {fp}, FN: {fn}")
+    # y_pred = pd.Series(y_pred)
+    # failed = test_df[test_df["Label"] != y_pred]
+    # failed.to_csv("failed.csv")
+    # export_model(pipeline)
 
 
 def export_model(pipeline, export_path="model.npz"):
@@ -93,7 +64,6 @@ def export_model(pipeline, export_path="model.npz"):
     vocab = vec.vocabulary_
     inv_vocab = {i: t for t, i in vocab.items()}
     idf = pipeline.named_steps["tfidf"].idf_
-
     rf = pipeline.named_steps["clf"]
     classes = rf.classes_
     n_trees = len(rf.estimators_)
